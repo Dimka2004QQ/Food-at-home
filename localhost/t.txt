@@ -1,0 +1,36 @@
+<section>
+            <div class="section-sale-grid">
+                <div class="container-item">
+                    <div class="sale-grid">
+                        <?php
+                        $dbUser = 'root';
+                        $dbName = 'food_in home';
+                        $dbPass = '';
+                        $mysqli = new mysqli("localhost", $dbUser, $dbPass, $dbName);
+                        $query = "set names utf8";
+                        $mysqli->query($query);
+                        $query = "select * from product";
+                        $results = $mysqli->query($query);
+                        while ($row = $results->fetch_assoc()) {
+                            echo '<div class="sale-grid-item">
+                            <div class="sale-grid-img">
+                                <img src="'.$row["img"].'" alt="" width="270px" height="220px">
+                            </div>
+                            <div class="sale-grid-title">
+                            '.$row["title"].'
+                            </div>
+                            <div class="sale-grid-text">
+                            '.$row["text"].'
+                            </div>
+                            <div class="sale-grid-price">
+                                <div class="sale-grid-price-1">
+                                    '.$row["price"].' ₽
+                                </div>
+                            </div>
+                        </div>
+                        ';}
+                    ?>
+                    </div>
+                </div>
+            </div>
+    </section>
